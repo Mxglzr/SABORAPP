@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_light">
+
+    <!-- Barra Superior Naranja -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/primary"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Círculo Inicial Usuario -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/primary_dark">
+
+            <TextView
+                android:id="@+id/tvAvatarInicial"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="A"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Saludo y Rol -->
+            <TextView
+                android:id="@+id/tvBienvenida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hola, admin"
+                android:textColor="@color/text_primary"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvRol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="24dp"
+                android:text="Rol: Administrador"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp" />
+
+            <!-- Opción: Platos -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPlatos"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/ic_launcher_background"
+                        android:backgroundTint="#FFEBEE"
+                        android:gravity="center"
+                        android:text="P"
+                        android:textColor="@color/primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:text="@string/menu_platos"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="›"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Opción: Mesas -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMesas"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/ic_launcher_background"
+                        android:backgroundTint="#FFF3E0"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="@color/accent"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:text="@string/menu_mesas"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="›"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Opción: Pedidos -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPedidos"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/ic_launcher_background"
+                        android:backgroundTint="#FFEBEE"
+                        android:gravity="center"
+                        android:text="P"
+                        android:textColor="@color/primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:text="@string/menu_pedidos"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="›"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Opción: Reportes (Solo ADMIN) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardReportes"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/ic_launcher_background"
+                        android:backgroundTint="#FBE9E7"
+                        android:gravity="center"
+                        android:text="R"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:text="@string/menu_reportes"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="›"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Botón Salir -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSalir"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="@string/btn_salir"
+                android:textAllCaps="false"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                app:cornerRadius="27dp"
+                app:strokeColor="@color/primary"
+                app:strokeWidth="1.5dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

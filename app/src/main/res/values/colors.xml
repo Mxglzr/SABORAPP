@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Paleta cálida Pollería El Buen Sabor (HU-03) -->
+    <color name="primary">#E64A19</color>
+    <color name="primary_dark">#BF360C</color>
+    <color name="primary_light">#FFCCBC</color>
+    <color name="accent">#FF7043</color>
+    <color name="background_light">#F8F9FA</color>
+    
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    
+    <!-- Estados de mesa -->
+    <color name="mesa_libre">#4CAF50</color>
+    <color name="mesa_ocupada">#E53935</color>
+</resources>
