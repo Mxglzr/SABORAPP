@@ -73,7 +73,7 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/primary"
+            app:boxStrokeColor="@color/input_box_stroke"
             app:hintTextColor="@color/primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,6 +84,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_secondary"
+                android:textSize="15sp"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,7 +102,7 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/primary"
+            app:boxStrokeColor="@color/input_box_stroke"
             app:endIconMode="password_toggle"
             app:hintTextColor="@color/primary"
             app:layout_constraintEnd_toEndOf="parent"
@@ -111,6 +114,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_secondary"
+                android:textSize="15sp"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 

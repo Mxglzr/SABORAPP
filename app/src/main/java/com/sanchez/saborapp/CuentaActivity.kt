@@ -62,7 +62,7 @@ class CuentaActivity : AppCompatActivity() {
 
     private fun confirmarCierreCuenta() {
         val p = pedido ?: return
-        AlertDialog.Builder(this)
+        com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
             .setTitle("Cerrar cuenta")
             .setMessage("¿Desea cerrar la cuenta de la Mesa ${p.numero_mesa ?: p.id_mesa} por un total de S/ ${String.format("%.2f", p.total)}?")
             .setPositiveButton("Cerrar cuenta") { _, _ ->

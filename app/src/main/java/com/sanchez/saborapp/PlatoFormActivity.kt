@@ -29,8 +29,11 @@ class PlatoFormActivity : AppCompatActivity() {
     }
 
     private fun setupSpinner() {
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categorias)
-        binding.spnCategoria.adapter = adapter
+        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, categorias)
+        binding.actvCategoria.setAdapter(adapter)
+        if (categorias.isNotEmpty() && platoEdicion == null) {
+            binding.actvCategoria.setText(categorias[0], false)
+        }
     }
 
     private fun verificarModoEdicion() {
@@ -46,8 +49,7 @@ class PlatoFormActivity : AppCompatActivity() {
             platoEdicion?.let { p ->
                 binding.etNombre.setText(p.nombre)
                 binding.etPrecio.setText(p.precio.toString())
-                val catIndex = categorias.indexOf(p.categoria)
-                if (catIndex >= 0) binding.spnCategoria.setSelection(catIndex)
+                binding.actvCategoria.setText(p.categoria, false)
                 binding.switchDisponible.isChecked = (p.disponible == 1)
             }
         } else {
@@ -73,7 +75,7 @@ class PlatoFormActivity : AppCompatActivity() {
     private fun guardarOActualizar() {
         val nombre = binding.etNombre.text?.toString()?.trim().orEmpty()
         val precioStr = binding.etPrecio.text?.toString()?.trim().orEmpty()
-        val categoria = binding.spnCategoria.selectedItem?.toString().orEmpty()
+        val categoria = binding.actvCategoria.text?.toString()?.trim().orEmpty()
         val disponible = if (binding.switchDisponible.isChecked) 1 else 0
 
         // CA1: Validar campos vacíos
@@ -82,6 +84,13 @@ class PlatoFormActivity : AppCompatActivity() {
             return
         } else {
             binding.tilNombre.error = null
+        }
+
+        if (categoria.isEmpty()) {
+            binding.tilCategoria.error = "Seleccione una categoría"
+            return
+        } else {
+            binding.tilCategoria.error = null
         }
 
         if (precioStr.isEmpty()) {
@@ -144,7 +153,7 @@ class PlatoFormActivity : AppCompatActivity() {
     }
 
     private fun confirmarEliminacion() {
-        AlertDialog.Builder(this)
+        com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
             .setTitle("Confirmar eliminación")
             .setMessage("¿Está seguro de eliminar este plato?")
             .setPositiveButton("Eliminar") { _, _ ->

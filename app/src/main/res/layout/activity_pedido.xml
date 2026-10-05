@@ -88,31 +88,33 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Plato"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="13sp" />
-
-                    <!-- Spinner de Platos Disponibles -->
-                    <com.google.android.material.card.MaterialCardView
+                    <!-- Selector Desplegable de Platos Disponibles (Exposed Dropdown) -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilPlatos"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="4dp"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="0dp"
-                        app:strokeColor="#CCCCCC"
-                        app:strokeWidth="1dp"
-                        app:cardBackgroundColor="@color/white">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:hint="Plato a pedir"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxStrokeColor="@color/input_box_stroke"
+                        app:hintTextColor="@color/primary"
+                        app:startIconDrawable="@drawable/ic_menu_platos"
+                        app:startIconTint="@color/primary">
 
-                        <Spinner
-                            android:id="@+id/spnPlatos"
+                        <AutoCompleteTextView
+                            android:id="@+id/actvPlatos"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:paddingHorizontal="8dp" />
-                    </com.google.android.material.card.MaterialCardView>
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:paddingVertical="14dp"
+                            android:textColor="@color/text_primary"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Cantidad + Botón Agregar -->
                     <LinearLayout
@@ -125,9 +127,15 @@
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/tilCantidad"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                            android:layout_width="110dp"
+                            android:layout_width="115dp"
                             android:layout_height="wrap_content"
-                            android:hint="Cant.">
+                            android:hint="Cantidad"
+                            app:boxCornerRadiusBottomEnd="12dp"
+                            app:boxCornerRadiusBottomStart="12dp"
+                            app:boxCornerRadiusTopEnd="12dp"
+                            app:boxCornerRadiusTopStart="12dp"
+                            app:boxStrokeColor="@color/input_box_stroke"
+                            app:hintTextColor="@color/primary">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/etCantidad"
@@ -135,6 +143,10 @@
                                 android:layout_height="wrap_content"
                                 android:inputType="number"
                                 android:text="1"
+                                android:gravity="center"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
                                 android:maxLines="1" />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -145,10 +157,12 @@
                             android:layout_marginStart="12dp"
                             android:layout_weight="1"
                             android:backgroundTint="@color/primary"
-                            android:text="Agregar"
+                            android:text="Agregar Plato"
                             android:textAllCaps="false"
                             android:textSize="15sp"
                             android:textStyle="bold"
+                            app:icon="@drawable/ic_menu_pedidos"
+                            app:iconGravity="textStart"
                             app:cornerRadius="12dp" />
                     </LinearLayout>
 

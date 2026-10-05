@@ -25,6 +25,7 @@ class PedidoActivity : AppCompatActivity() {
     private var platosDisponibles: List<Plato> = emptyList()
     private var mesaSeleccionada: Mesa? = null
     private var pedidoActual: Pedido? = null
+    private var platoSeleccionadoPos: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,9 +102,22 @@ class PedidoActivity : AppCompatActivity() {
                     val todos = respPlatos.body()?.datos ?: emptyList()
                     platosDisponibles = todos.filter { it.disponible == 1 }
 
-                    val nombresPlatos = platosDisponibles.map { "${it.nombre} (S/ ${String.format("%.2f", it.precio)})" }
-                    val spinnerAdapter = ArrayAdapter(this@PedidoActivity, android.R.layout.simple_spinner_dropdown_item, nombresPlatos)
-                    binding.spnPlatos.adapter = spinnerAdapter
+                    val nombresPlatos = platosDisponibles.map { "${it.nombre}  —  S/ ${String.format("%.2f", it.precio)}" }
+                    val dropdownAdapter = ArrayAdapter(this@PedidoActivity, android.R.layout.simple_dropdown_item_1line, nombresPlatos)
+                    binding.actvPlatos.setAdapter(dropdownAdapter)
+
+                    if (nombresPlatos.isNotEmpty()) {
+                        if (platoSeleccionadoPos < 0 || platoSeleccionadoPos >= platosDisponibles.size) {
+                            binding.actvPlatos.setText(nombresPlatos[0], false)
+                            platoSeleccionadoPos = 0
+                        } else {
+                            binding.actvPlatos.setText(nombresPlatos[platoSeleccionadoPos], false)
+                        }
+                    }
+
+                    binding.actvPlatos.setOnItemClickListener { _, _, position, _ ->
+                        platoSeleccionadoPos = position
+                    }
                 }
             } catch (e: Exception) {
                 Toast.makeText(this@PedidoActivity, "Error al cargar datos: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
@@ -147,13 +161,20 @@ class PedidoActivity : AppCompatActivity() {
             return
         }
 
-        val platoPos = binding.spnPlatos.selectedItemPosition
-        if (platoPos < 0 || platoPos >= platosDisponibles.size) {
-            Toast.makeText(this, "Seleccione un plato", Toast.LENGTH_SHORT).show()
-            return
+        if (platoSeleccionadoPos < 0 || platoSeleccionadoPos >= platosDisponibles.size) {
+            val textoActual = binding.actvPlatos.text.toString().trim()
+            val indexCoincide = platosDisponibles.indexOfFirst {
+                "${it.nombre}  —  S/ ${String.format("%.2f", it.precio)}" == textoActual
+            }
+            if (indexCoincide >= 0) {
+                platoSeleccionadoPos = indexCoincide
+            } else {
+                Toast.makeText(this, "Seleccione un plato válido", Toast.LENGTH_SHORT).show()
+                return
+            }
         }
 
-        val plato = platosDisponibles[platoPos]
+        val plato = platosDisponibles[platoSeleccionadoPos]
         val cantStr = binding.etCantidad.text?.toString()?.trim().orEmpty()
         val cantidad = cantStr.toIntOrNull() ?: 0
 
