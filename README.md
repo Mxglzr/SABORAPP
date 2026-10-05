@@ -12,7 +12,7 @@
 
 ## 📋 Historias de Usuario Implementadas
 
-### 🔹 HU-07: Editar, eliminar y buscar platos (3 pts)
+### 🔹 HU-07: Editar, eliminar y buscar platos 
 * **Historia:** *Como administrador, quiero corregir, eliminar y buscar platos, para mantener la carta actualizada.*
 * **Criterios de Aceptación:**
   * **CA1:** Al pulsar un plato se abre `PlatoFormActivity` en modo edición con sus datos precargados.
@@ -20,7 +20,7 @@
   * **CA3:** Buscador en tiempo real (`doAfterTextChanged`) que filtra por nombre utilizando `LIKE`.
   * **CA4:** Platos marcados como "Agotado" no aparecen en la lista de selección para pedidos del mozo.
 
-### 🔹 HU-08: Tomar pedido por mesa (8 pts)
+### 🔹 HU-08: Tomar pedido por mesa 
 * **Historia:** *Como mozo, quiero elegir una mesa y agregarle platos con su cantidad, para registrar el pedido sin papel.*
 * **Criterios de Aceptación:**
   * **CA1:** Grilla de mesas con distinción cromática en vivo: verde para `LIBRE` y naranja/rojo para `OCUPADA`.
@@ -28,7 +28,7 @@
   * **CA3:** Se recalcula el subtotal y total automáticamente ante cada adición.
   * **CA4:** **Transacción Atómica:** Se captura `precio_unit` histórico para evitar discrepancias si el precio del plato varía después. Si ocurre un fallo en red, se aplica `ROLLBACK` y nada queda a medias.
 
-### 🔹 HU-09: Cerrar la cuenta de una mesa (5 pts)
+### 🔹 HU-09: Cerrar la cuenta de una mesa 
 * **Historia:** *Como mozo, quiero cerrar la cuenta de una mesa, para cobrar al cliente y liberar la mesa.*
 * **Criterios de Aceptación:**
   * **CA1:** Vista `CuentaActivity` con el desglose detallado (platos, cantidades, precios y total general).
