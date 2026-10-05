@@ -2,7 +2,6 @@
 **Proyecto:** App Android para gestión de comandas y cuentas  
 **Institución:** SENATI — Seminario de Complementación Práctica III (VI Semestre)  
 **Rama:** `Sprint2`  
-**Puntos comprometidos:** 11 pts | **Duración:** 60 minutos  
 ---
 ## 🎯 Objetivo del Sprint 2
 > **Catálogo y Persistencia:** Platos y mesas se registran y listan desde base de datos en XAMPP (MySQL); login real con autenticación de usuarios.
