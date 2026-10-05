@@ -30,11 +30,13 @@ class MesaAdapter(
             if (mesa.estado.uppercase() == "OCUPADA") {
                 tvEstadoMesa.text = "Ocupada"
                 tvEstadoMesa.setTextColor(Color.parseColor("#E53935"))
+                ivIconoMesa.setColorFilter(Color.parseColor("#E53935"))
                 cardMesa.strokeColor = Color.parseColor("#FF5722")
                 cardMesa.setCardBackgroundColor(Color.parseColor("#FFF3E0"))
             } else {
                 tvEstadoMesa.text = "Libre"
                 tvEstadoMesa.setTextColor(Color.parseColor("#4CAF50"))
+                ivIconoMesa.setColorFilter(Color.parseColor("#4CAF50"))
                 cardMesa.strokeColor = Color.parseColor("#E0E0E0")
                 cardMesa.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
             }

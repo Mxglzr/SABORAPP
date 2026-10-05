@@ -95,16 +95,21 @@
                     android:orientation="horizontal"
                     android:paddingHorizontal="16dp">
 
-                    <TextView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:background="@drawable/ic_launcher_background"
-                        android:backgroundTint="#FFEBEE"
-                        android:gravity="center"
-                        android:text="P"
-                        android:textColor="@color/primary"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp"
+                        app:cardBackgroundColor="@color/fondo_icono_platos">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_menu_platos"
+                            app:tint="@color/primary" />
+                    </com.google.android.material.card.MaterialCardView>
 
                     <TextView
                         android:layout_width="0dp"
@@ -144,16 +149,21 @@
                     android:orientation="horizontal"
                     android:paddingHorizontal="16dp">
 
-                    <TextView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:background="@drawable/ic_launcher_background"
-                        android:backgroundTint="#FFF3E0"
-                        android:gravity="center"
-                        android:text="M"
-                        android:textColor="@color/accent"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp"
+                        app:cardBackgroundColor="@color/fondo_icono_mesas">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_menu_mesas"
+                            app:tint="@color/accent" />
+                    </com.google.android.material.card.MaterialCardView>
 
                     <TextView
                         android:layout_width="0dp"
@@ -193,16 +203,21 @@
                     android:orientation="horizontal"
                     android:paddingHorizontal="16dp">
 
-                    <TextView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:background="@drawable/ic_launcher_background"
-                        android:backgroundTint="#FFEBEE"
-                        android:gravity="center"
-                        android:text="P"
-                        android:textColor="@color/primary"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp"
+                        app:cardBackgroundColor="@color/fondo_icono_pedidos">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_menu_pedidos"
+                            app:tint="@color/primary" />
+                    </com.google.android.material.card.MaterialCardView>
 
                     <TextView
                         android:layout_width="0dp"
@@ -242,16 +257,21 @@
                     android:orientation="horizontal"
                     android:paddingHorizontal="16dp">
 
-                    <TextView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:background="@drawable/ic_launcher_background"
-                        android:backgroundTint="#FBE9E7"
-                        android:gravity="center"
-                        android:text="R"
-                        android:textColor="@color/primary_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp"
+                        app:cardBackgroundColor="@color/fondo_icono_reportes">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_menu_reportes"
+                            app:tint="@color/primary_dark" />
+                    </com.google.android.material.card.MaterialCardView>
 
                     <TextView
                         android:layout_width="0dp"
@@ -282,6 +302,9 @@
                 android:textAllCaps="false"
                 android:textColor="@color/primary"
                 android:textSize="16sp"
+                app:icon="@drawable/ic_logout"
+                app:iconGravity="textStart"
+                app:iconTint="@color/primary"
                 app:cornerRadius="27dp"
                 app:strokeColor="@color/primary"
                 app:strokeWidth="1.5dp" />

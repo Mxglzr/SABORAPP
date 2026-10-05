@@ -19,23 +19,44 @@
         android:orientation="vertical"
         android:padding="8dp">
 
+        <ImageView
+            android:id="@+id/ivIconoMesa"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_menu_mesas"
+            app:tint="@color/mesa_libre" />
+
         <TextView
             android:id="@+id/tvNumeroMesa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:text="Mesa 1"
             android:textColor="@color/text_primary"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvCapacidadMesa"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:text="Cap: 4 pers."
-            android:textColor="@color/text_secondary"
-            android:textSize="11sp" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_personas"
+                app:tint="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/tvCapacidadMesa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="4 pers."
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvEstadoMesa"
@@ -44,7 +65,7 @@
             android:layout_marginTop="2dp"
             android:text="Libre"
             android:textColor="@color/mesa_libre"
-            android:textSize="12sp"
+            android:textSize="11sp"
             android:textStyle="bold" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
