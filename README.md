@@ -17,7 +17,7 @@
 
 ## 📋 Historias de Usuario Implementadas
 
-### 🔹 HU-10: Reportes de ventas (5 pts)
+### 🔹 HU-10: Reportes de ventas 
 * **Historia:** *Como dueño, quiero ver la venta del día, los platos más pedidos y la venta por mesa, para decidir qué preparar y promocionar.*
 * **Criterios de Aceptación:**
   * **CA1:** Muestra la venta acumulada del día (`SUM(total)` con fecha `CURDATE()`).
@@ -25,14 +25,14 @@
   * **CA3:** Gráfico de barras con el **Top 5 de platos más pedidos** (`GROUP BY id_plato ORDER BY SUM(cantidad) DESC`).
   * **CA4:** Si no se registran cierres en la fecha, muestra el mensaje `«Sin ventas hoy»`.
 
-### 🔹 HU-11: Compartir la cuenta por WhatsApp (2 pts)
+### 🔹 HU-11: Compartir la cuenta por WhatsApp 
 * **Historia:** *Como mozo, quiero enviar la cuenta al celular del cliente, para que tenga el detalle de su consumo.*
 * **Criterios de Aceptación:**
   * **CA1:** Construye un mensaje con formato amigable incluyendo nombre del restaurante, número de mesa, lista de productos y total.
   * **CA2:** Utiliza un Intent implícito (`Intent.ACTION_SEND`) con `Intent.createChooser` para seleccionar WhatsApp u otra aplicación.
   * **CA3:** Si el dispositivo no tiene WhatsApp instalado, el selector muestra apps alternativas sin provocar un cierre inesperado (cero crashes).
 
-### 🔹 HU-12: Sesión recordada y APK instalable (3 pts)
+### 🔹 HU-12: Sesión recordada y APK instalable 
 * **Historia:** *Como mozo, quiero que la app recuerde mi sesión y se pueda instalar en el celular del negocio.*
 * **Criterios de Aceptación:**
   * **CA1:** Persistencia de sesión mediante `SharedPreferences`. Al abrir la app, entra directamente al menú principal saltándose el login.
