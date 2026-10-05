@@ -16,4 +16,12 @@
     <!-- Estados de mesa -->
     <color name="mesa_libre">#4CAF50</color>
     <color name="mesa_ocupada">#E53935</color>
+
+    <!-- Fondos de soporte para iconos del Menú -->
+    <color name="fondo_icono_platos">#FBE9E7</color>
+    <color name="fondo_icono_mesas">#FFF3E0</color>
+    <color name="fondo_icono_pedidos">#FFEBEE</color>
+    <color name="fondo_icono_reportes">#EDE7F6</color>
+    
+    <color name="color_whatsapp">#25D366</color>
 </resources>

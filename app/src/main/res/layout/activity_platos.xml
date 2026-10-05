@@ -107,6 +107,8 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/ic_cat_fondos"
+                        app:chipIconVisible="true"
                         android:text="Fondos" />
 
                     <com.google.android.material.chip.Chip
@@ -114,6 +116,8 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/ic_cat_bebidas"
+                        app:chipIconVisible="true"
                         android:text="Bebidas" />
 
                     <com.google.android.material.chip.Chip
@@ -121,6 +125,8 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/ic_cat_postres"
+                        app:chipIconVisible="true"
                         android:text="Postres" />
 
                     <com.google.android.material.chip.Chip
@@ -128,6 +134,8 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/ic_cat_entradas"
+                        app:chipIconVisible="true"
                         android:text="Entradas" />
                 </com.google.android.material.chip.ChipGroup>
             </HorizontalScrollView>
