@@ -19,25 +19,22 @@ class MenuActivity : AppCompatActivity() {
         val nombreUsuario = intent.getStringExtra("NOMBRE_USUARIO") ?: "admin"
         val rolUsuario = intent.getStringExtra("ROL_USUARIO") ?: "ADMIN"
 
-        // CA1: Mostrar datos del usuario
         binding.tvBienvenida.text = getString(R.string.saludo_usuario, nombreUsuario)
         binding.tvRol.text = getString(R.string.rol_usuario, if (rolUsuario == "ADMIN") "Administrador" else "Mozo")
         binding.tvAvatarInicial.text = nombreUsuario.firstOrNull()?.uppercase() ?: "A"
 
-        // CA4: Si es MOZO, ocultar la opciÃ³n Reportes (solo para ADMIN)
         if (rolUsuario == "MOZO") {
             binding.cardReportes.visibility = View.GONE
         } else {
             binding.cardReportes.visibility = View.VISIBLE
         }
 
-        // CA2: NavegaciÃ³n de prototipos
         binding.cardPlatos.setOnClickListener {
-            Toast.makeText(this, "Platos (Disponible en Sprint 2)", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, PlatosActivity::class.java))
         }
 
         binding.cardMesas.setOnClickListener {
-            Toast.makeText(this, "Mesas (Disponible en Sprint 2)", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, MesasActivity::class.java))
         }
 
         binding.cardPedidos.setOnClickListener {
@@ -48,7 +45,6 @@ class MenuActivity : AppCompatActivity() {
             Toast.makeText(this, "Reportes (Disponible en Sprint 4)", Toast.LENGTH_SHORT).show()
         }
 
-        // CA3: Salir y volver al Login
         binding.btnSalir.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

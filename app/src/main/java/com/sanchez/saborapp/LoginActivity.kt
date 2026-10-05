@@ -2,9 +2,14 @@
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.sanchez.saborapp.databinding.ActivityLoginBinding
+import com.sanchez.saborapp.model.LoginRequest
+import com.sanchez.saborapp.network.ApiClient
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
@@ -16,15 +21,14 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnIngresar.setOnClickListener {
-            validarIngreso()
+            validarYConectar()
         }
     }
 
-    private fun validarIngreso() {
+    private fun validarYConectar() {
         val usuario = binding.etUsuario.text?.toString()?.trim().orEmpty()
         val clave = binding.etClave.text?.toString()?.trim().orEmpty()
 
-        // CA1: Validar campos vacÃ­os con mensaje de error debajo
         var hayError = false
         if (usuario.isEmpty()) {
             binding.tilUsuario.error = getString(R.string.error_usuario_vacio)
@@ -42,24 +46,39 @@ class LoginActivity : AppCompatActivity() {
 
         if (hayError) return
 
-        // CA2: admin / 1234 -> abrir menÃº y cerrar login (no regresa)
-        if (usuario == "admin" && clave == "1234") {
-            val intent = Intent(this, MenuActivity::class.java).apply {
-                putExtra("NOMBRE_USUARIO", "admin")
-                putExtra("ROL_USUARIO", "ADMIN")
+        setLoading(true)
+
+        lifecycleScope.launch {
+            try {
+                val response = ApiClient.apiService.login(LoginRequest(usuario, clave))
+                setLoading(false)
+
+                if (response.isSuccessful && response.body()?.status == true) {
+                    val user = response.body()?.usuario
+                    val intent = Intent(this@LoginActivity, MenuActivity::class.java).apply {
+                        putExtra("ID_USUARIO", user?.id ?: 0)
+                        putExtra("NOMBRE_USUARIO", user?.usuario ?: usuario)
+                        putExtra("ROL_USUARIO", user?.rol ?: "MOZO")
+                    }
+                    startActivity(intent)
+                    finish()
+                } else {
+                    val mensaje = response.body()?.mensaje ?: getString(R.string.error_credenciales)
+                    Toast.makeText(this@LoginActivity, mensaje, Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                setLoading(false)
+                Toast.makeText(
+                    this@LoginActivity,
+                    "${getString(R.string.error_conexion)}: ${e.localizedMessage}",
+                    Toast.LENGTH_LONG
+                ).show()
             }
-            startActivity(intent)
-            finish()
-        } else if (usuario == "mozo" && clave == "1234") {
-            val intent = Intent(this, MenuActivity::class.java).apply {
-                putExtra("NOMBRE_USUARIO", "mozo")
-                putExtra("ROL_USUARIO", "MOZO")
-            }
-            startActivity(intent)
-            finish()
-        } else {
-            // CA3: Credenciales incorrectas
-            Toast.makeText(this, getString(R.string.error_credenciales), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun setLoading(cargando: Boolean) {
+        binding.progressBar.visibility = if (cargando) View.VISIBLE else View.GONE
+        binding.btnIngresar.isEnabled = !cargando
     }
 }
