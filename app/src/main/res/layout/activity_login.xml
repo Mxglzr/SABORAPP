@@ -12,14 +12,14 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- Logo Círculo 'S' -->
+        <!-- Logo Oficial SaborApp -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardLogo"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginTop="60dp"
-            app:cardCornerRadius="45dp"
-            app:cardElevation="0dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="50dp"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="2dp"
             app:strokeColor="@color/primary"
             app:strokeWidth="2dp"
             app:cardBackgroundColor="@color/white"
@@ -27,14 +27,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="S"
-                android:textColor="@color/primary"
-                android:textSize="44sp"
-                android:textStyle="bold" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo_saborapp" />
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Título de la App -->
