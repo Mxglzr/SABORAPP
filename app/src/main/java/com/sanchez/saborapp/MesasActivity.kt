@@ -56,37 +56,38 @@ class MesasActivity : AppCompatActivity() {
 
         val dialog = AlertDialog.Builder(this)
             .setView(dialogBinding.root)
-            .setPositiveButton("Guardar", null)
-            .setNegativeButton("Cancelar", null)
             .create()
 
-        dialog.setOnShowListener {
-            val btnGuardar = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
-            btnGuardar.setOnClickListener {
-                val numStr = dialogBinding.etNumeroMesa.text?.toString()?.trim().orEmpty()
-                val capStr = dialogBinding.etCapacidadMesa.text?.toString()?.trim().orEmpty()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
-                val numero = numStr.toIntOrNull() ?: 0
-                val capacidad = capStr.toIntOrNull() ?: 0
+        dialogBinding.btnCancelarMesa.setOnClickListener {
+            dialog.dismiss()
+        }
 
-                if (numero <= 0) {
-                    dialogBinding.tilNumeroMesa.error = "Número inválido"
-                    return@setOnClickListener
-                } else {
-                    dialogBinding.tilNumeroMesa.error = null
-                }
+        dialogBinding.btnGuardarMesa.setOnClickListener {
+            val numStr = dialogBinding.etNumeroMesa.text?.toString()?.trim().orEmpty()
+            val capStr = dialogBinding.etCapacidadMesa.text?.toString()?.trim().orEmpty()
 
-                // CA2: Capacidad debe estar entre 1 y 12
-                if (capacidad < 1 || capacidad > 12) {
-                    dialogBinding.tilCapacidadMesa.error = "Capacidad inválida"
-                    Toast.makeText(this@MesasActivity, "Capacidad inválida", Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                } else {
-                    dialogBinding.tilCapacidadMesa.error = null
-                }
+            val numero = numStr.toIntOrNull() ?: 0
+            val capacidad = capStr.toIntOrNull() ?: 0
 
-                guardarMesa(numero, capacidad, dialog)
+            if (numero <= 0) {
+                dialogBinding.tilNumeroMesa.error = "Número inválido"
+                return@setOnClickListener
+            } else {
+                dialogBinding.tilNumeroMesa.error = null
             }
+
+            // CA2: Capacidad debe estar entre 1 y 12
+            if (capacidad < 1 || capacidad > 12) {
+                dialogBinding.tilCapacidadMesa.error = "Capacidad inválida (1 a 12)"
+                Toast.makeText(this@MesasActivity, "Capacidad inválida (1 a 12)", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            } else {
+                dialogBinding.tilCapacidadMesa.error = null
+            }
+
+            guardarMesa(numero, capacidad, dialog)
         }
 
         dialog.show()
