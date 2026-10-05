@@ -40,6 +40,14 @@
         <activity
             android:name=".MesasActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".PedidoActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CuentaActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

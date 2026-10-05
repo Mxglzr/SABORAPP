@@ -38,7 +38,7 @@ class MenuActivity : AppCompatActivity() {
         }
 
         binding.cardPedidos.setOnClickListener {
-            Toast.makeText(this, "Pedidos (Disponible en Sprint 3)", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, PedidoActivity::class.java))
         }
 
         binding.cardReportes.setOnClickListener {

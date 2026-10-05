@@ -2,11 +2,14 @@
 AplicaciÃ³n Android nativa desarrollada en Kotlin para la gestiÃ³n y digitalizaciÃ³n de comandas y cuentas de restaurante.
 
 ## ðŸš€ Sprint 1: App Navegable
-- **Objetivo:** Login validado y menÃº principal navegable.
+- Login y navegaciÃ³n validados.
 
-## ðŸš€ Sprint 2: CatÃ¡logo de Platos, Mesas y AutenticaciÃ³n con Backend XAMPP
-- **Objetivo:** Platos y mesas se registran y listan desde base de datos en XAMPP (MySQL); login real con roles.
+## ðŸš€ Sprint 2: Platos y Mesas en XAMPP
+- GestiÃ³n de catÃ¡logo de platos y mesas con persistencia MySQL.
+
+## ðŸš€ Sprint 3: Toma de Pedidos por Mesa y Cierre de Cuenta
+- **Objetivo:** El mozo toma pedidos por mesa y cierra la cuenta con transacciones atÃ³micas.
 - **Historias de Usuario:**
-  - `HU-04`: Base de datos MySQL y autenticaciÃ³n segura con llamadas HTTP vÃ­a Retrofit.
-  - `HU-05`: Registro y listado de platos con Spinner de categorÃ­as y validaciÃ³n de precios.
-  - `HU-06`: Registro y visualizaciÃ³n en cuadrÃ­cula de mesas con validaciÃ³n de capacidad (1 a 12).
+  - `HU-07`: EdiciÃ³n, eliminaciÃ³n y bÃºsqueda de platos en tiempo real.
+  - `HU-08`: Toma de pedidos maestro-detalle con transacciones PDO, guardando precio unitario histÃ³rico y actualizando estado de mesa a `OCUPADA`.
+  - `HU-09`: Cierre de cuenta y liberaciÃ³n automÃ¡tica de la mesa (`LIBRE`).
